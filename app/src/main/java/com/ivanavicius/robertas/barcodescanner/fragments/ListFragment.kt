@@ -44,8 +44,6 @@ class ListFragment: Fragment() {
         viewModel.getAll()
 
         add.setOnClickListener {
-            /*enterQuantity("850006000012")
-            return@setOnClickListener*/
             val integrator = IntentIntegrator.forSupportFragment(this)
             integrator.setDesiredBarcodeFormats(IntentIntegrator.CODE_128, IntentIntegrator.CODE_39, IntentIntegrator.EAN_13)
             integrator.setPrompt("")
@@ -100,12 +98,15 @@ class ListFragment: Fragment() {
 
         dialog.show()
 
-        dialogView.findViewById<TextInputLayout>(R.id.quantityLayout).editText?.setOnEditorActionListener { _, i, _ ->
-            if (i == EditorInfo.IME_ACTION_GO){
-                dialog.getButton(AlertDialog.BUTTON_POSITIVE).callOnClick()
-                true
-            } else
-                false
+        dialogView.findViewById<TextInputLayout>(R.id.quantityLayout).editText?.apply {
+            requestFocus()
+            setOnEditorActionListener { _, i, _ ->
+                if (i == EditorInfo.IME_ACTION_GO){
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).callOnClick()
+                    true
+                } else
+                    false
+            }
         }
 
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
