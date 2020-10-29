@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.ivanavicius.robertas.barcodescanner.fragments.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_barcodeFragment"
+            app:destination="@id/barcodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/barcodeFragment"
+        android:name="com.ivanavicius.robertas.barcodescanner.fragments.BarcodeFragment"
+        android:label="BarcodeFragment"
+        tools:layout="@layout/fragment_barcode">
+        <argument
+            android:name="barcode"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_barcodeFragment_self"
+            app:destination="@id/barcodeFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+</navigation>
