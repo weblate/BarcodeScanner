@@ -28,7 +28,7 @@ class BarcodeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (arguments == null){
+        if (arguments == null){ // Comment
             requireActivity().onBackPressed()
             return
         }
