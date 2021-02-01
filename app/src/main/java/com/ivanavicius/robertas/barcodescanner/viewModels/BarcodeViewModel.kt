@@ -18,7 +18,7 @@ class BarcodeViewModel(application: Application): AndroidViewModel(application) 
     val barcodes = MutableLiveData<List<Barcode>>()
     val nextBarcode = MutableLiveData<String?>()
 
-    fun getAll(){ // Get All
+    fun getAll(){
         CoroutineScope(Dispatchers.IO).launch {
             barcodes.postValue(db.getAll())
         }
