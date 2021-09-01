@@ -2,4 +2,8 @@
 <resources>
     <string name="app_name" translatable="false">BarcodeScanner</string>
     <string name="test">Test string</string>
+    <string-array name="test">
+        <item>First</item>
+        <item>Second</item>
+    </string-array>
 </resources>
